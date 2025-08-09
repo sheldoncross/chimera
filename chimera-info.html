@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Chimera: The Future of AI Training Data</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #2563eb, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center my-12">
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight text-slate-900">Project <span class="gradient-text">Chimera</span></h1>
+            <p class="mt-4 text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">Fueling the Next Generation of Artificial Intelligence by Solving the Imminent Data Scarcity Crisis.</p>
+        </header>
+
+        <main class="space-y-16">
+
+            <section id="problem" class="bg-white rounded-xl shadow-lg p-6 md:p-10">
+                <h2 class="text-3xl font-bold text-center text-slate-900 mb-8">The Problem: The AI Industry is Hitting a Data Wall</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="text-2xl font-bold text-blue-600">1</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-800">Data Scarcity is Imminent</h3>
+                                <p class="text-slate-600">High-quality training data is a finite resource. Projections show that the supply of useful, public data will be exhausted for training large models within the next few years.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="text-2xl font-bold text-blue-600">2</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-800">Quality is Degrading</h3>
+                                <p class="text-slate-600">The web is becoming increasingly polluted with low-quality, repetitive AI-generated content, making it harder to find pristine data for training.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="text-2xl font-bold text-blue-600">3</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-800">Model Collapse is a Major Risk</h3>
+                                <p class="text-slate-600">Training AI on purely AI-generated data leads to a feedback loop where models lose diversity, amplify biases, and ultimately degrade in quality.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container h-80 md:h-96">
+                        <canvas id="dataExhaustionChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <section id="solution" class="bg-blue-600 text-white rounded-xl shadow-lg p-6 md:p-10">
+                <h2 class="text-3xl font-bold text-center mb-8">Our Solution: A Managed AI Ecosystem</h2>
+                <p class="text-center max-w-3xl mx-auto text-blue-100 mb-12">Project Chimera is a synthetic data foundry. We cultivate novel, complex, and high-quality conversational data by orchestrating a controlled ecosystem where multiple AIs interact, grounded by real-world information.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                    <div class="bg-blue-700 p-6 rounded-lg">
+                        <div class="text-4xl mb-2">📰</div>
+                        <h3 class="font-bold">Ingest Daily Topics</h3>
+                        <p class="text-sm text-blue-200">Seed conversations with relevant, real-world events.</p>
+                    </div>
+                    <div class="bg-blue-700 p-6 rounded-lg">
+                        <div class="text-4xl mb-2">🤖</div>
+                        <h3 class="font-bold">Multi-Model Conversations</h3>
+                        <p class="text-sm text-blue-200">Utilize diverse LLMs to create rich, unpredictable dialogue.</p>
+                    </div>
+                    <div class="bg-blue-700 p-6 rounded-lg">
+                        <div class="text-4xl mb-2">🔗</div>
+                        <h3 class="font-bold">Ground with Human Data</h3>
+                        <p class="text-sm text-blue-200">Tether AI conversations to authentic human nuance and style.</p>
+                    </div>
+                    <div class="bg-blue-700 p-6 rounded-lg">
+                        <div class="text-4xl mb-2">🎲</div>
+                        <h3 class="font-bold">Introduce Stochastic Controls</h3>
+                        <p class="text-sm text-blue-200">Inject randomness to prevent loops and maximize value.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="market" class="bg-white rounded-xl shadow-lg p-6 md:p-10">
+                <h2 class="text-3xl font-bold text-center text-slate-900 mb-2">Target Market: High-Value B2B Clients</h2>
+                <p class="text-center max-w-3xl mx-auto text-slate-600 mb-12">We are serving clients who feel the data pain most acutely and have the resources to pay for a premium solution.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="chart-container mx-auto h-64">
+                            <canvas id="marketShareChart"></canvas>
+                        </div>
+                        <h3 class="font-bold text-lg mt-4">AI Model Developers</h3>
+                        <p class="text-slate-600">Startups and established companies building foundational LLMs.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="chart-container mx-auto h-64">
+                            <canvas id="marketShareChart2"></canvas>
+                        </div>
+                        <h3 class="font-bold text-lg mt-4">AI Safety & Research Labs</h3>
+                        <p class="text-slate-600">Academic and corporate institutions studying AI behavior.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="chart-container mx-auto h-64">
+                            <canvas id="marketShareChart3"></canvas>
+                        </div>
+                        <h3 class="font-bold text-lg mt-4">Enterprise AI Teams</h3>
+                        <p class="text-slate-600">Large corporations fine-tuning models on proprietary data.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="opportunity" class="bg-slate-800 text-white rounded-xl shadow-lg p-6 md:p-10">
+                <h2 class="text-3xl font-bold text-center mb-8">The Blue Ocean Opportunity</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 gradient-text">A "Picks & Shovels" Play</h3>
+                        <p class="text-slate-300 mb-6">While others compete to build the best chatbot, we provide the essential fuel they all need. This positions us as a fundamental part of the AI ecosystem's infrastructure, creating immense strategic value.</p>
+                        <div class="space-y-4">
+                            <div class="bg-slate-700 p-4 rounded-lg">
+                                <h4 class="font-bold">Proprietary Generation Process</h4>
+                                <p class="text-sm text-slate-400">Our unique multi-model, human-grounded system is difficult to replicate.</p>
+                            </div>
+                            <div class="bg-slate-700 p-4 rounded-lg">
+                                <h4 class="font-bold">Data Quality Flywheel</h4>
+                                <p class="text-sm text-slate-400">Customer feedback continuously refines our process, making our data more valuable over time.</p>
+                            </div>
+                            <div class="bg-slate-700 p-4 rounded-lg">
+                                <h4 class="font-bold">First-Mover Data Library</h4>
+                                <p class="text-sm text-slate-400">Building the largest library of high-fidelity synthetic data creates a powerful moat.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container h-80 md:h-96">
+                        <canvas id="competitiveAdvantageChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="text-center mt-16 py-8 border-t border-slate-200">
+            <p class="text-slate-600">Project Chimera | August 2025</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+
+        const wrapLabel = (label) => {
+            const maxLength = 16;
+            if (label.length <= maxLength) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + word).length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            }
+            lines.push(currentLine.trim());
+            return lines;
+        };
+
+        const commonChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            },
+        };
+
+        const dataExhaustionChartCtx = document.getElementById('dataExhaustionChart').getContext('2d');
+        new Chart(dataExhaustionChartCtx, {
+            type: 'line',
+            data: {
+                labels: ['2022', '2023', '2024', '2025', '2026', '2027', '2028'],
+                datasets: [{
+                    label: 'Available High-Quality Data',
+                    data: [100, 95, 80, 55, 25, 10, 5],
+                    fill: true,
+                    borderColor: '#ef4444',
+                    backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                    tension: 0.4,
+                }, {
+                    label: 'AI-Generated Content Pollution',
+                    data: [5, 10, 25, 45, 70, 85, 90],
+                    fill: true,
+                    borderColor: '#3b82f6',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    tension: 0.4,
+                }]
+            },
+            options: { ...commonChartOptions,
+                plugins: { ...commonChartOptions.plugins, legend: { display: true, position: 'bottom', labels: { color: '#475569' } } },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: { color: '#64748b' },
+                        grid: { color: '#e2e8f0' }
+                    },
+                    x: {
+                        ticks: { color: '#64748b' },
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        const marketShareChartCtx = document.getElementById('marketShareChart').getContext('2d');
+        new Chart(marketShareChartCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['AI Model Developers', 'Other'],
+                datasets: [{
+                    data: [60, 40],
+                    backgroundColor: ['#2563eb', '#dbeafe'],
+                    borderColor: ['#2563eb', '#dbeafe'],
+                    borderWidth: 1
+                }]
+            },
+            options: { ...commonChartOptions, cutout: '70%' }
+        });
+
+        const marketShareChart2Ctx = document.getElementById('marketShareChart2').getContext('2d');
+        new Chart(marketShareChart2Ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['AI Safety & Research', 'Other'],
+                datasets: [{
+                    data: [25, 75],
+                    backgroundColor: ['#2563eb', '#dbeafe'],
+                    borderColor: ['#2563eb', '#dbeafe'],
+                    borderWidth: 1
+                }]
+            },
+            options: { ...commonChartOptions, cutout: '70%' }
+        });
+
+        const marketShareChart3Ctx = document.getElementById('marketShareChart3').getContext('2d');
+        new Chart(marketShareChart3Ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Enterprise AI Teams', 'Other'],
+                datasets: [{
+                    data: [15, 85],
+                    backgroundColor: ['#2563eb', '#dbeafe'],
+                    borderColor: ['#2563eb', '#dbeafe'],
+                    borderWidth: 1
+                }]
+            },
+            options: { ...commonChartOptions, cutout: '70%' }
+        });
+
+        const competitiveAdvantageChartCtx = document.getElementById('competitiveAdvantageChart').getContext('2d');
+        const originalLabels = ['Proprietary Generation Process', 'Data Quality Flywheel', 'First-Mover Data Library'];
+        new Chart(competitiveAdvantageChartCtx, {
+            type: 'bar',
+            data: {
+                labels: originalLabels.map(wrapLabel),
+                datasets: [{
+                    label: 'Competitive Strength',
+                    data: [90, 85, 80],
+                    backgroundColor: ['#1e40af', '#1d4ed8', '#2563eb'],
+                    borderRadius: 6
+                }]
+            },
+            options: { ...commonChartOptions,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: { color: '#94a3b8' },
+                        grid: { color: '#334155' }
+                    },
+                    y: {
+                        ticks: { color: '#d1d5db' },
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
+
