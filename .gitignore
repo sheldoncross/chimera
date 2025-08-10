@@ -1,0 +1,14 @@
+# Operating System Files
+.DS_Store
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# IDE and Editor Files
+.idea/
+.vscode/
+
+# Logs and temporary files
+*.log

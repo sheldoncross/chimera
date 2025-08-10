@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+*.env # .env file for environment variables
+
+# Scrapy
+.scrapy/
+
+# Docker
+*.log
