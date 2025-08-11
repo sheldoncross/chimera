@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Chimera - Business Model Canvas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .header h1 {
+            color: #2d3748;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            color: #718096;
+            font-size: 1.1em;
+        }
+        
+        .canvas {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(2, minmax(250px, auto));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .canvas-block {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .canvas-block:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-color: #667eea;
+        }
+        
+        .canvas-block h3 {
+            color: #2d3748;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #cbd5e0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .canvas-block .icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .canvas-block ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .canvas-block li {
+            color: #4a5568;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.4;
+        }
+        
+        .canvas-block li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .canvas-block .highlight {
+            font-weight: 600;
+            color: #2d3748;
+        }
+        
+        /* Grid positioning */
+        .key-partners {
+            grid-column: 1;
+            grid-row: 1;
+        }
+        
+        .key-activities {
+            grid-column: 2;
+            grid-row: 1;
+        }
+        
+        .value-propositions {
+            grid-column: 3;
+            grid-row: 1 / 3;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border: 2px solid #667eea;
+        }
+        
+        .customer-relationships {
+            grid-column: 4;
+            grid-row: 1;
+        }
+        
+        .customer-segments {
+            grid-column: 5;
+            grid-row: 1 / 3;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border: 2px solid #764ba2;
+        }
+        
+        .key-resources {
+            grid-column: 2;
+            grid-row: 2;
+        }
+        
+        .channels {
+            grid-column: 4;
+            grid-row: 2;
+        }
+        
+        .cost-structure {
+            grid-column: 1 / 3;
+            grid-row: 3;
+            background: #fef5e7;
+            border: 2px solid #f39c12;
+        }
+        
+        .revenue-streams {
+            grid-column: 3 / 6;
+            grid-row: 3;
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
+        }
+        
+        .metrics {
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            color: white;
+        }
+        
+        .metrics h3 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .metric-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .metric-item strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #ffd700;
+        }
+        
+        @media (max-width: 1200px) {
+            .canvas {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: auto;
+            }
+            
+            .value-propositions, .customer-segments {
+                grid-row: auto;
+            }
+            
+            .cost-structure, .revenue-streams {
+                grid-column: span 3;
+            }
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>PROJECT CHIMERA</h1>
+            <p>High-Fidelity Synthetic Conversational Data Platform for AI Training</p>
+        </div>
+        
+        <div class="canvas">
+            <div class="canvas-block key-partners">
+                <h3><span class="icon">KP</span> Key Partners</h3>
+                <ul>
+                    <li><span class="highlight">LLM Providers:</span> Google, Anthropic, Cohere</li>
+                    <li><span class="highlight">Cloud:</span> GCP (primary), AWS, Azure</li>
+                    <li><span class="highlight">Data Sources:</span> Licensed conversations, News APIs</li>
+                    <li><span class="highlight">Strategic:</span> AI research labs, Academic institutions</li>
+                </ul>
+            </div>
+            
+            <div class="canvas-block key-activities">
+                <h3><span class="icon">KA</span> Key Activities</h3>
+                <ul>
+                    <li><span class="highlight">Generation:</span> Multi-model conversation orchestration</li>
+                    <li><span class="highlight">Development:</span> Platform & API maintenance</li>
+                    <li><span class="highlight">Processing:</span> Data enrichment & formatting</li>
+                    <li><span class="highlight">Quality:</span> Continuous monitoring & improvement</li>
+                </ul>
+            </div>
+            
+            <div class="canvas-block value-propositions">
+                <h3><span class="icon">VP</span> Value Propositions</h3>
+                <ul>
+                    <li><span class="highlight">Infinite Data:</span> Solves the "data wall" problem</li>
+                    <li><span class="highlight">High Quality:</span> Multi-model diversity reduces bias</li>
+                    <li><span class="highlight">Customizable:</span> Domain-specific generation</li>
+                    <li><span class="highlight">Cost Effective:</span> 10x cheaper than manual labeling</li>
+                    <li><span class="highlight">Instant Access:</span> API-based delivery</li>
+                    <li><span class="highlight">Format Ready:</span> Pre-formatted for RLHF, instruction tuning</li>
+                    <li><span class="highlight">Continuous:</span> Always-fresh data stream</li>
+                </ul>
+            </div>
+            
+            <div class="canvas-block customer-relationships">
+                <h3><span class="icon">CR</span> Customer Relationships</h3>
+                <ul>
+                    <li><span class="highlight">Self-Service:</span> GraphQL API</li>
+                    <li><span class="highlight">Enterprise:</span> Dedicated support</li>
+                    <li><span class="highlight">Community:</span> Developer forums</li>
+                    <li><span class="highlight">Engagement:</span> Quarterly reviews</li>
+                </ul>
+            </div>
+            
+            <div class="canvas-block customer-segments">
+                <h3><span class="icon">CS</span> Customer Segments</h3>
+                <ul>
+                    <li><span class="highlight">AI Startups</span> (200-400)<br>Character.AI, Perplexity, etc.</li>
+                    <li><span class="highlight">Big Tech</span> (50-100)<br>Google, Microsoft, Meta</li>
+                    <li><span class="highlight">Research Labs</span> (20-50)<br>Anthropic, OpenAI</li>
+                    <li><span class="highlight">Enterprise AI</span> (200-300)<br>Finance, Legal, Healthcare</li>
+                    <li style="margin-top: 15px; font-weight: bold; color: #667eea;">TAM: 500-1,000 customers</li>
+                </ul>
+            </div>
+            
+            <div class="canvas-block key-resources">
+                <h3><span class="icon">KR</span> Key Resources</h3>
+                <ul>
+                    <li><span class="highlight">Tech Stack:</span> Kafka, Redis, K8s</li>
+                    <li><span class="highlight">Data Lake:</span> Petabytes of conversations</li>
+                    <li><span class="highlight">Team:</span> ML engineers, Backend devs</li>
+                    <li><span class="highlight">IP:</span> Orchestration algorithms</li>
+                </ul>
+            </div>
+            
+            <div class="canvas-block channels">
+                <h3><span class="icon">CH</span> Channels</h3>
+                <ul>
+                    <li><span class="highlight">Direct:</span> Enterprise sales team</li>
+                    <li><span class="highlight">Digital:</span> API marketplace, GitHub</li>
+                    <li><span class="highlight">Partners:</span> Cloud marketplaces</li>
+                    <li><span class="highlight">Events:</span> AI conferences</li>
+                </ul>
+            </div>
+            
+            <div class="canvas-block cost-structure">
+                <h3><span class="icon">CS</span> Cost Structure</h3>
+                <ul>
+                    <li><span class="highlight">Variable (60%):</span> LLM API calls, GPU compute, Cloud infrastructure</li>
+                    <li><span class="highlight">Fixed (30%):</span> Engineering salaries, DevOps, Data scientists</li>
+                    <li><span class="highlight">Data (10%):</span> Licensing, Storage, API feeds</li>
+                </ul>
+            </div>
+            
+            <div class="canvas-block revenue-streams">
+                <h3><span class="icon">RS</span> Revenue Streams</h3>
+                <ul>
+                    <li><span class="highlight">Annual Subscriptions:</span> $100K ACV target, tiered by volume</li>
+                    <li><span class="highlight">Usage-Based:</span> Pay-per-dataset, burst capacity pricing</li>
+                    <li><span class="highlight">Professional Services:</span> Custom generation, white-glove onboarding</li>
+                    <li><span class="highlight">Future:</span> Analytics platform, quality assessment tools</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="metrics">
+            <h3>📊 Key Metrics & Strategic Advantages</h3>
+            <div class="metrics-grid">
+                <div class="metric-item">
+                    <strong>Business KPIs</strong>
+                    ARR, CAC, CLV, Monthly Active APIs
+                </div>
+                <div class="metric-item">
+                    <strong>Operational KPIs</strong>
+                    TB/month generated, API latency (p99)
+                </div>
+                <div class="metric-item">
+                    <strong>Market Position</strong>
+                    First-mover in multi-model synthesis
+                </div>
+                <div class="metric-item">
+                    <strong>Competitive Moat</strong>
+                    Network effects + proprietary orchestration
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

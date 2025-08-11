@@ -2,6 +2,6 @@ fastapi
 pydantic
 scrapy
 redis
-uvicorn
 python-dotenv
 scrapy-redis
+fastapi[standard]
