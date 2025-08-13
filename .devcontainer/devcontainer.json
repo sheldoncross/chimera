@@ -4,7 +4,6 @@
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
-  "postCreateCommand": "cd src/backend/services/data-ingestion-service && docker-compose up -d",
   "customizations": {
     "vscode": {
       "extensions": [

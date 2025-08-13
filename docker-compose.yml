@@ -1,0 +1,28 @@
+version: '3.8'
+
+networks:
+  chimera-net:
+    driver: bridge
+
+services:
+  data-ingestion-service:
+    build:
+      context: ./src/backend/services/data_ingestion_service
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./src/backend/services/data_ingestion_service/.env
+    depends_on:
+      - redis
+    networks:
+      - chimera-net
+
+  redis:
+    image: "redis:alpine"
+    # To connect from your host machine with redis-cli, you need to expose the port.
+    ports:
+      - "127.0.0.1:${REDIS_PORT}:6379"
+    # If you want to set a password:
+    # command: redis-server --requirepass your_redis_password
+    networks:
+      - chimera-net
