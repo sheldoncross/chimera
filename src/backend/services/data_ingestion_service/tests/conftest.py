@@ -1,25 +1,18 @@
-import sys
-import os
 import pytest
 from fastapi.testclient import TestClient
-from unittest.mock import Mock, patch
-
-# Add the service root to the Python path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from unittest.mock import Mock
 
 from app.main import app
-
-
-@pytest.fixture
-def client():
-    """Test client for FastAPI app"""
-    return TestClient(app)
-
+from app.api.endpoints import get_ingestion_service
 
 @pytest.fixture
 def mock_ingestion_service():
     """Mock ScrapyIngestionService for testing"""
-    with patch('app.api.endpoints.ScrapyIngestionService') as mock:
-        mock_instance = Mock()
-        mock.return_value = mock_instance
-        yield mock_instance
+    return Mock()
+
+@pytest.fixture
+def client(mock_ingestion_service):
+    """Test client for FastAPI app with mocked ingestion service"""
+    app.dependency_overrides[get_ingestion_service] = lambda: mock_ingestion_service
+    yield TestClient(app)
+    app.dependency_overrides.clear()

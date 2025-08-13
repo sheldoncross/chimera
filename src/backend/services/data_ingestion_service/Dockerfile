@@ -4,6 +4,9 @@ FROM python:3.10-slim
 # Set the working directory in the container
 WORKDIR /app
 
+# Set the python path
+ENV PYTHONPATH /app
+
 # Copy the requirements file into the container at /app
 COPY requirements.txt .
 
@@ -17,4 +20,4 @@ COPY ./app /app
 EXPOSE 8000
 
 # Run app/main.py when the container launches
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["fastapi", "dev", "main.py", "--host", "0.0.0.0", "--port", "8000"]
