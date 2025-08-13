@@ -1,11 +1,9 @@
-fastapi
-pydantic
-scrapy
+fastapi[standard]
 redis
 python-dotenv
-scrapy-redis
-fastapi[standard]
 pytest
 pytest-asyncio
 httpx
 pytest-cov
+requests
+beautifulsoup4
