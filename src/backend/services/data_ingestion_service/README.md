@@ -7,7 +7,7 @@
 
 ## Tech Stack
 - **FastAPI**: For building the API endpoints and service orchestration.
-- **Scrapy**: For web scraping and data extraction from various sources.
+- **Beautiful Soup**: For web scraping and data extraction from various sources.
 - **Playwright**: For browser automation and scraping dynamic content.
 - **Docker**: For containerized deployment and environment consistency.
 
