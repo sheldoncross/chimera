@@ -14,7 +14,7 @@ from tenacity import (
     RetryError
 )
 
-from ..config.settings import Settings
+# Settings are handled dynamically
 
 logger = logging.getLogger(__name__)
 
@@ -27,8 +27,21 @@ class CircuitBreakerError(Exception):
 class BaseLLMClient(ABC):
     """Base class for LLM API clients with retry logic and rate limiting."""
     
-    def __init__(self, settings: Settings):
-        self.settings = settings
+    def __init__(self, settings):
+        # Handle both dict and Settings object
+        if isinstance(settings, dict):
+            self.settings = type('Settings', (), settings)()
+            # Set default values for missing fields
+            if not hasattr(self.settings, 'rate_limit_window_seconds'):
+                self.settings.rate_limit_window_seconds = 60
+            if not hasattr(self.settings, 'rate_limit_requests_per_minute'):
+                self.settings.rate_limit_requests_per_minute = 60
+            if not hasattr(self.settings, 'circuit_breaker_timeout_seconds'):
+                self.settings.circuit_breaker_timeout_seconds = 60
+            if not hasattr(self.settings, 'circuit_breaker_failure_threshold'):
+                self.settings.circuit_breaker_failure_threshold = 5
+        else:
+            self.settings = settings
         self.session: Optional[aiohttp.ClientSession] = None
         self._rate_limit_tokens = []
         self._circuit_breaker_failures = 0
@@ -56,7 +69,7 @@ class BaseLLMClient(ABC):
             await self.session.close()
             self.session = None
     
-    def _check_rate_limit(self) -> bool:
+    async def _check_rate_limit(self) -> bool:
         """Check if request is within rate limits."""
         current_time = time.time()
         window_start = current_time - self.settings.rate_limit_window_seconds
@@ -105,8 +118,7 @@ class BaseLLMClient(ABC):
     @retry(
         stop=stop_after_attempt(3),
         wait=wait_exponential(multiplier=1, min=1, max=10),
-        retry=retry_if_exception_type((aiohttp.ClientError, asyncio.TimeoutError)),
-        reraise=True
+        retry=retry_if_exception_type((aiohttp.ClientError, asyncio.TimeoutError))
     )
     async def generate_response(self, 
                               prompt: str, 
@@ -115,7 +127,7 @@ class BaseLLMClient(ABC):
         """Generate response from LLM with retry logic."""
         try:
             # Check rate limiting
-            if not self._check_rate_limit():
+            if not await self._check_rate_limit():
                 raise Exception("Rate limit exceeded")
             
             # Check circuit breaker
@@ -183,7 +195,7 @@ class BaseLLMClient(ABC):
 class LLMClientFactory:
     """Factory for creating LLM clients."""
     
-    def __init__(self, settings: Settings):
+    def __init__(self, settings):
         self.settings = settings
         self._clients: Dict[str, BaseLLMClient] = {}
     

@@ -26,6 +26,24 @@ async def mock_redis():
     redis_mock.delete.return_value = True
     redis_mock.exists.return_value = False
     redis_mock.lpop.return_value = None
+    redis_mock.llen.return_value = 0
+    redis_mock.smembers.return_value = set()
+    redis_mock.srem.return_value = 1
+    redis_mock.sadd.return_value = 1
+    
+    # Mock pipeline context manager
+    async def mock_pipeline(transaction=True):
+        pipe_mock = AsyncMock()
+        pipe_mock.set.return_value = None
+        pipe_mock.sadd.return_value = None
+        pipe_mock.delete.return_value = None
+        pipe_mock.srem.return_value = None
+        pipe_mock.execute.return_value = [True, True]
+        pipe_mock.__aenter__ = AsyncMock(return_value=pipe_mock)
+        pipe_mock.__aexit__ = AsyncMock(return_value=None)
+        return pipe_mock
+    
+    redis_mock.pipeline = mock_pipeline
     return redis_mock
 
 
@@ -139,7 +157,7 @@ def mock_settings():
         "google_api_key": "test-google-key",
         "max_conversation_turns": 10,
         "conversation_timeout_seconds": 300,
-        "rate_limit_requests_per_minute": 60
+        "rate_limit_requests_per_minute": 3
     }
 
 

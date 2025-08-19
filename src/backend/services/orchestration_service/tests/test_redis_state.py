@@ -15,7 +15,7 @@ class TestRedisStateManager:
     async def redis_state_manager(self, mock_redis, mock_settings):
         """Create a Redis state manager instance."""
         from app.storage.redis_state import RedisStateManager
-        return RedisStateManager(mock_redis, mock_settings)
+        return RedisStateManager(mock_settings, redis_client=mock_redis)
 
     @pytest_asyncio.fixture
     async def sample_conversation_state(self):

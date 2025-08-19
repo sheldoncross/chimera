@@ -24,7 +24,9 @@ class TestKafkaProducer:
 
     async def test_producer_start_stop(self, kafka_producer):
         """Test producer start and stop lifecycle."""
-        with patch('aiokafka.AIOKafkaProducer') as mock_producer_class:
+        # TODO: FAILING - KafkaConnectionError when trying to connect to localhost:9092
+        # TODO: Fix by properly mocking AIOKafkaProducer in the producer module import
+        with patch('app.kafka.producer.AIOKafkaProducer') as mock_producer_class:
             mock_producer = AsyncMock()
             mock_producer_class.return_value = mock_producer
             
@@ -39,7 +41,9 @@ class TestKafkaProducer:
 
     async def test_send_event_success(self, kafka_producer):
         """Test successful event publishing."""
-        with patch('aiokafka.AIOKafkaProducer') as mock_producer_class:
+        # TODO: FAILING - Patch needs to target the correct import path: 'app.kafka.producer.AIOKafkaProducer'
+        # TODO: Fix by using patch('app.kafka.producer.AIOKafkaProducer') instead
+        with patch('app.kafka.producer.AIOKafkaProducer') as mock_producer_class:
             mock_producer = AsyncMock()
             mock_producer_class.return_value = mock_producer
             
@@ -60,7 +64,9 @@ class TestKafkaProducer:
 
     async def test_send_event_with_key(self, kafka_producer):
         """Test sending event with partition key."""
-        with patch('aiokafka.AIOKafkaProducer') as mock_producer_class:
+        # TODO: FAILING - Same issue as test_send_event_success
+        # TODO: Fix by properly mocking AIOKafkaProducer import path
+        with patch('app.kafka.producer.AIOKafkaProducer') as mock_producer_class:
             mock_producer = AsyncMock()
             mock_producer_class.return_value = mock_producer
             
@@ -76,7 +82,9 @@ class TestKafkaProducer:
 
     async def test_send_event_failure_retry(self, kafka_producer):
         """Test retry logic on send failures."""
-        with patch('aiokafka.AIOKafkaProducer') as mock_producer_class:
+        # TODO: FAILING - Mock path issue + need to properly mock producer.send side_effect
+        # TODO: Fix by mocking correct path and ensuring KafkaError is properly raised
+        with patch('app.kafka.producer.AIOKafkaProducer') as mock_producer_class:
             mock_producer = AsyncMock()
             mock_producer_class.return_value = mock_producer
             
@@ -95,7 +103,9 @@ class TestKafkaProducer:
 
     async def test_send_event_max_retries_exceeded(self, kafka_producer):
         """Test behavior when max retries are exceeded."""
-        with patch('aiokafka.AIOKafkaProducer') as mock_producer_class:
+        # TODO: FAILING - Same mock path issue as other send tests
+        # TODO: Fix by mocking correct import path and side_effect
+        with patch('app.kafka.producer.AIOKafkaProducer') as mock_producer_class:
             mock_producer = AsyncMock()
             mock_producer_class.return_value = mock_producer
             mock_producer.send.side_effect = KafkaError("Persistent error")
@@ -109,7 +119,9 @@ class TestKafkaProducer:
 
     async def test_batch_send_events(self, kafka_producer):
         """Test sending multiple events in batch."""
-        with patch('aiokafka.AIOKafkaProducer') as mock_producer_class:
+        # TODO: FAILING - Same mock path issue affecting all producer tests
+        # TODO: Fix by correctly mocking AIOKafkaProducer import
+        with patch('app.kafka.producer.AIOKafkaProducer') as mock_producer_class:
             mock_producer = AsyncMock()
             mock_producer_class.return_value = mock_producer
             
@@ -144,7 +156,9 @@ class TestKafkaConsumer:
 
     async def test_consumer_start_stop(self, kafka_consumer):
         """Test consumer start and stop lifecycle."""
-        with patch('aiokafka.AIOKafkaConsumer') as mock_consumer_class:
+        # TODO: FAILING - Same issue as producer - mock path needs to be 'app.kafka.consumer.AIOKafkaConsumer'
+        # TODO: Fix by patching the correct import path in consumer module
+        with patch('app.kafka.consumer.AIOKafkaConsumer') as mock_consumer_class:
             mock_consumer = AsyncMock()
             mock_consumer_class.return_value = mock_consumer
             
@@ -156,7 +170,9 @@ class TestKafkaConsumer:
 
     async def test_subscribe_to_topics(self, kafka_consumer):
         """Test subscribing to multiple topics."""
-        with patch('aiokafka.AIOKafkaConsumer') as mock_consumer_class:
+        # TODO: FAILING - Mock path issue - AIOKafkaConsumer not being mocked correctly
+        # TODO: Fix by patching 'app.kafka.consumer.AIOKafkaConsumer'
+        with patch('app.kafka.consumer.AIOKafkaConsumer') as mock_consumer_class:
             mock_consumer = AsyncMock()
             mock_consumer_class.return_value = mock_consumer
             
@@ -169,7 +185,9 @@ class TestKafkaConsumer:
 
     async def test_consume_messages(self, kafka_consumer):
         """Test consuming messages from topics."""
-        with patch('aiokafka.AIOKafkaConsumer') as mock_consumer_class:
+        # TODO: FAILING - Mock path + async iteration setup issues
+        # TODO: Fix mocking path and properly setup __aiter__ for async iteration
+        with patch('app.kafka.consumer.AIOKafkaConsumer') as mock_consumer_class:
             mock_consumer = AsyncMock()
             mock_consumer_class.return_value = mock_consumer
             
@@ -233,7 +251,9 @@ class TestKafkaConsumer:
 
     async def test_consumer_error_handling(self, kafka_consumer):
         """Test error handling in message consumption."""
-        with patch('aiokafka.AIOKafkaConsumer') as mock_consumer_class:
+        # TODO: FAILING - Mock path issue + _handle_error method not implemented
+        # TODO: Fix by mocking correctly and implementing _handle_error in consumer
+        with patch('app.kafka.consumer.AIOKafkaConsumer') as mock_consumer_class:
             mock_consumer = AsyncMock()
             mock_consumer_class.return_value = mock_consumer
             
@@ -257,7 +277,9 @@ class TestKafkaConsumer:
 
     async def test_offset_management(self, kafka_consumer):
         """Test manual offset management."""
-        with patch('aiokafka.AIOKafkaConsumer') as mock_consumer_class:
+        # TODO: FAILING - Mock path issue affecting consumer tests
+        # TODO: Fix by properly mocking AIOKafkaConsumer in consumer module
+        with patch('app.kafka.consumer.AIOKafkaConsumer') as mock_consumer_class:
             mock_consumer = AsyncMock()
             mock_consumer_class.return_value = mock_consumer
             

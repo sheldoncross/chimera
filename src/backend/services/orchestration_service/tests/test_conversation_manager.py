@@ -14,7 +14,6 @@ class TestConversationManager:
     @pytest_asyncio.fixture
     async def conversation_manager(self, mock_redis, mock_kafka_producer, mock_anthropic_client, mock_google_client, mock_settings):
         """Create a ConversationManager instance with mocked dependencies."""
-        # This will be implemented later, but defines the interface we expect
         from app.workers.conversation_manager import ConversationManager
         
         manager = ConversationManager(

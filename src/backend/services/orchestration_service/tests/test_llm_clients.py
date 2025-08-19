@@ -15,7 +15,16 @@ class TestBaseLLMClient:
     async def base_client(self, mock_settings):
         """Create a base LLM client instance."""
         from app.clients.base_llm_client import BaseLLMClient
-        return BaseLLMClient(mock_settings)
+        
+        # Create a concrete test implementation
+        class TestLLMClient(BaseLLMClient):
+            async def _make_request(self, prompt: str, conversation_history=None, **kwargs):
+                return {"content": "test response", "tokens": 10}
+                
+            def _format_messages(self, prompt: str, conversation_history=None):
+                return [{"role": "user", "content": prompt}]
+        
+        return TestLLMClient(mock_settings)
 
     async def test_rate_limiting(self, base_client):
         """Test that rate limiting is properly enforced."""
@@ -49,6 +58,9 @@ class TestBaseLLMClient:
 
     async def test_max_retries_exceeded(self, base_client):
         """Test behavior when max retries are exceeded."""
+        # Reset rate limit tokens for clean test
+        base_client._rate_limit_tokens = []
+        
         with patch.object(base_client, '_make_request') as mock_request:
             mock_request.side_effect = aiohttp.ClientError("Persistent error")
             
@@ -57,6 +69,11 @@ class TestBaseLLMClient:
 
     async def test_circuit_breaker_pattern(self, base_client):
         """Test circuit breaker functionality."""
+        # Reset state for clean test
+        base_client._rate_limit_tokens = []
+        base_client._circuit_breaker_failures = 0
+        base_client._circuit_breaker_open = False
+        
         # After multiple failures, circuit should open
         with patch.object(base_client, '_make_request') as mock_request:
             mock_request.side_effect = aiohttp.ClientError("Service down")
@@ -70,6 +87,9 @@ class TestBaseLLMClient:
             
             # Circuit should now be open
             assert base_client._circuit_breaker_open is True
+            
+            # Reset rate limit for the next test call
+            base_client._rate_limit_tokens = []
             
             # Next request should fail fast without actual HTTP call
             with pytest.raises(Exception, match="Circuit breaker"):
@@ -88,8 +108,10 @@ class TestAnthropicClient:
 
     async def test_successful_request(self, anthropic_client):
         """Test successful API request to Anthropic."""
+        # TODO: FAILING - Empty content being returned from mocked response
+        # TODO: Fix by ensuring mock response returns proper content structure for Anthropic API
         mock_response = {
-            "content": [{"text": "This is Claude's response."}],
+            "content": [{"type": "text", "text": "This is Claude's response."}],
             "model": "claude-3-sonnet-20240229",
             "usage": {"input_tokens": 10, "output_tokens": 20}
         }
@@ -299,10 +321,30 @@ class TestLLMClientFactory:
 
     async def test_health_check(self, client_factory):
         """Test health check functionality for all clients."""
-        with patch('aiohttp.ClientSession.post') as mock_post:
-            mock_post.return_value.__aenter__.return_value.status = 200
-            mock_post.return_value.__aenter__.return_value.json = AsyncMock(return_value={})
+        # Mock different responses for Anthropic and Google
+        def mock_response_side_effect(url, **kwargs):
+            mock_resp = AsyncMock()
+            mock_resp.__aenter__ = AsyncMock()
             
+            if "anthropic" in str(url):
+                # Anthropic response format
+                mock_resp.__aenter__.return_value.status = 200
+                mock_resp.__aenter__.return_value.json = AsyncMock(return_value={
+                    "content": [{"type": "text", "text": "Hello"}],
+                    "model": "claude-3-sonnet-20240229",
+                    "usage": {"input_tokens": 1, "output_tokens": 1}
+                })
+            else:
+                # Google response format
+                mock_resp.__aenter__.return_value.status = 200
+                mock_resp.__aenter__.return_value.json = AsyncMock(return_value={
+                    "candidates": [{"content": {"parts": [{"text": "Hello"}]}}],
+                    "usageMetadata": {"totalTokenCount": 2}
+                })
+            
+            return mock_resp
+            
+        with patch('aiohttp.ClientSession.post', side_effect=mock_response_side_effect):
             health_status = await client_factory.health_check_all()
             
             assert "anthropic" in health_status

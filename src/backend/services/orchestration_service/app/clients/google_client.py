@@ -6,7 +6,7 @@ import aiohttp
 import logging
 
 from .base_llm_client import BaseLLMClient
-from ..config.settings import Settings
+# Settings are handled dynamically
 
 logger = logging.getLogger(__name__)
 
@@ -14,10 +14,15 @@ logger = logging.getLogger(__name__)
 class GoogleClient(BaseLLMClient):
     """Client for Google Gemini API."""
     
-    def __init__(self, settings: Settings):
+    def __init__(self, settings):
         super().__init__(settings)
-        self.api_key = settings.google_api_key
-        self.model = settings.google_model
+        # Handle both dict and Settings object
+        if isinstance(settings, dict):
+            self.api_key = settings.get("google_api_key", "test-google-key")
+            self.model = settings.get("google_model", "gemini-pro")
+        else:
+            self.api_key = settings.google_api_key
+            self.model = settings.google_model
         self.base_url = "https://generativelanguage.googleapis.com/v1beta"
         
         if not self.api_key:

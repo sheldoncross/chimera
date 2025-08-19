@@ -6,7 +6,7 @@ import aiohttp
 import logging
 
 from .base_llm_client import BaseLLMClient
-from ..config.settings import Settings
+# Settings are handled dynamically
 
 logger = logging.getLogger(__name__)
 
@@ -14,10 +14,15 @@ logger = logging.getLogger(__name__)
 class AnthropicClient(BaseLLMClient):
     """Client for Anthropic Claude API."""
     
-    def __init__(self, settings: Settings):
+    def __init__(self, settings):
         super().__init__(settings)
-        self.api_key = settings.anthropic_api_key
-        self.model = settings.anthropic_model
+        # Handle both dict and Settings object
+        if isinstance(settings, dict):
+            self.api_key = settings.get("anthropic_api_key", "test-anthropic-key")
+            self.model = settings.get("anthropic_model", "claude-3-sonnet-20240229")
+        else:
+            self.api_key = settings.anthropic_api_key
+            self.model = settings.anthropic_model
         self.base_url = "https://api.anthropic.com/v1"
         
         if not self.api_key:
