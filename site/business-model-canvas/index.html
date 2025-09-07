@@ -1,219 +1,224 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Model Canvas | Project Chimera</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #2563eb, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 md:px-8 py-4">
+            <nav class="flex items-center justify-between">
+                <a href="" class="text-2xl font-bold gradient-text">Project Chimera</a>
+                <ul class="hidden md:flex items-center space-x-8">
 
 
+                            <li class="relative group">
+                                <a href="#" class="hover:text-blue-600">Project Overview</a>
+                                <ul class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48">
 
-        <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Business Model Canvas - Project Chimera</title>
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/fontawesome.min.css" rel="stylesheet">
-        <link href="../css/brands.min.css" rel="stylesheet">
-        <link href="../css/solid.min.css" rel="stylesheet">
-        <link href="../css/v4-font-face.min.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
-        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
-        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script>
-    </head>
+                                        <li><a href="" class="block px-4 py-2 hover:bg-slate-100">Home</a></li>
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="..">Project Chimera</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                                        <li><a href="info/" class="block px-4 py-2 hover:bg-slate-100">Info Page</a></li>
 
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Project Overview</a>
-                                <ul class="dropdown-menu">
+                                        <li><a href="info-specialized/" class="block px-4 py-2 hover:bg-slate-100">Specialized Info Page</a></li>
 
-<li>
-    <a href=".." class="dropdown-item">Home</a>
-</li>
-
-<li>
-    <a href="../info/" class="dropdown-item">Info Page</a>
-</li>
-
-<li>
-    <a href="../info-specialized/" class="dropdown-item">Specialized Info Page</a>
-</li>
                                 </ul>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Services</a>
-                                <ul class="dropdown-menu">
 
-<li>
-    <a href="../data-ingestion-service/" class="dropdown-item">Data Ingestion Service</a>
-</li>
 
-<li>
-    <a href="../orchestration-service/" class="dropdown-item">Orchestration Service</a>
-</li>
+
+                            <li class="relative group">
+                                <a href="#" class="hover:text-blue-600">Services</a>
+                                <ul class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48">
+
+                                        <li><a href="data-ingestion-service/" class="block px-4 py-2 hover:bg-slate-100">Data Ingestion Service</a></li>
+
+                                        <li><a href="orchestration-service/" class="block px-4 py-2 hover:bg-slate-100">Orchestration Service</a></li>
+
                                 </ul>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Business Case</a>
-                                <ul class="dropdown-menu">
 
-<li>
-    <a href="../investment-memo/" class="dropdown-item">Investment Memo</a>
-</li>
 
-<li>
-    <a href="../market-validation/" class="dropdown-item">Market Validation</a>
-</li>
 
-<li>
-    <a href="./" class="dropdown-item active" aria-current="page">Business Model Canvas</a>
-</li>
+                            <li class="relative group">
+                                <a href="#" class="hover:text-blue-600">Business Case</a>
+                                <ul class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48">
+
+                                        <li><a href="investment-memo/" class="block px-4 py-2 hover:bg-slate-100">Investment Memo</a></li>
+
+                                        <li><a href="market-validation/" class="block px-4 py-2 hover:bg-slate-100">Market Validation</a></li>
+
+                                        <li><a href="business-model-canvas/" class="block px-4 py-2 hover:bg-slate-100">Business Model Canvas</a></li>
+
                                 </ul>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Documentation</a>
-                                <ul class="dropdown-menu">
 
-<li>
-    <a href="../managing-docs/" class="dropdown-item">Managing Docs</a>
-</li>
+
+
+                            <li class="relative group">
+                                <a href="#" class="hover:text-blue-600">Documentation</a>
+                                <ul class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48">
+
+                                        <li><a href="managing-docs/" class="block px-4 py-2 hover:bg-slate-100">Managing Docs</a></li>
+
                                 </ul>
                             </li>
-                        </ul>
 
-                    <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../market-validation/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../managing-docs/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
+
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
+    <div class="container mx-auto p-4 md:p-8">
+        <main>
+
+            <h1 class="text-4xl font-bold mb-8">Business Model Canvas</h1>
+
+            <div class="bg-white rounded-2xl shadow-2xl p-8">
+    <div class="text-center mb-8 pb-5 border-b-3 border-indigo-500">
+        <h1 class="text-gray-800 text-4xl font-bold mb-2">PROJECT CHIMERA</h1>
+        <p class="text-gray-500 text-lg">High-Fidelity Synthetic Conversational Data Platform for AI Training</p>
     </div>
 
-
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
-        <ul class="nav flex-column">
-
-            <li class="nav-item" data-bs-level="1"><a href="#business-model-canvas" class="nav-link">Business Model Canvas</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-        </ul>
-    </div>
-</div></div>
-                    <div class="col-md-9" role="main">
-
-<h1 id="business-model-canvas">Business Model Canvas</h1>
-<p>Our business model is summarized in the following canvas:</p>
-<p><a href="../html/business-model-canvas.html">View Business Model Canvas</a></p>
-<p><em>Note: You are viewing a static HTML file. Please use your browser's back button to return to the documentation.</em></p></div>
-            </div>
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8" style="grid-template-rows: repeat(2, minmax(250px, auto));">
+        <div class="bg-gray-50 border-2 border-gray-200 rounded-xl p-5 hover:shadow-lg hover:border-indigo-500 transition-all duration-300 transform hover:-translate-y-1">
+            <h3 class="text-gray-800 text-lg font-semibold mb-4 pb-2 border-b-2 border-gray-300 flex items-center gap-2"><span class="w-6 h-6 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-md flex items-center justify-center text-white font-bold text-sm">KP</span> Key Partners</h3>
+            <ul class="list-none p-0">
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">LLM Providers:</span> Google, Anthropic, Cohere</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Cloud:</span> GCP (primary), AWS, Azure</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Data Sources:</span> Licensed conversations, News APIs</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Strategic:</span> AI research labs, Academic institutions</li>
+            </ul>
         </div>
 
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="../js/bootstrap.bundle.min.js"></script>
-        <script>
-            var base_url = "..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../js/base.js"></script>
-        <script src="../search/main.js"></script>
+        <div class="bg-gray-50 border-2 border-gray-200 rounded-xl p-5 hover:shadow-lg hover:border-indigo-500 transition-all duration-300 transform hover:-translate-y-1">
+            <h3 class="text-gray-800 text-lg font-semibold mb-4 pb-2 border-b-2 border-gray-300 flex items-center gap-2"><span class="w-6 h-6 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-md flex items-center justify-center text-white font-bold text-sm">KA</span> Key Activities</h3>
+            <ul class="list-none p-0">
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Generation:</span> Multi-model conversation orchestration</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Development:</span> Platform & API maintenance</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Processing:</span> Data enrichment & formatting</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Quality:</span> Continuous monitoring & improvement</li>
+            </ul>
+        </div>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
+        <div class="md:col-span-1 md:row-span-2 bg-gradient-to-br from-gray-50 to-gray-100 border-2 border-indigo-500 rounded-xl p-5">
+            <h3 class="text-gray-800 text-lg font-semibold mb-4 pb-2 border-b-2 border-gray-300 flex items-center gap-2"><span class="w-6 h-6 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-md flex items-center justify-center text-white font-bold text-sm">VP</span> Value Propositions</h3>
+            <ul class="list-none p-0">
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Infinite Data:</span> Solves the "data wall" problem</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">High Quality:</span> Multi-model diversity reduces bias</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Customizable:</span> Domain-specific generation</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Cost Effective:</span> 10x cheaper than manual labeling</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Instant Access:</span> API-based delivery</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Format Ready:</span> Pre-formatted for RLHF, instruction tuning</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Continuous:</span> Always-fresh data stream</li>
+            </ul>
+        </div>
+
+        <div class="bg-gray-50 border-2 border-gray-200 rounded-xl p-5 hover:shadow-lg hover:border-indigo-500 transition-all duration-300 transform hover:-translate-y-1">
+            <h3 class="text-gray-800 text-lg font-semibold mb-4 pb-2 border-b-2 border-gray-300 flex items-center gap-2"><span class="w-6 h-6 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-md flex items-center justify-center text-white font-bold text-sm">CR</span> Customer Relationships</h3>
+            <ul class="list-none p-0">
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Self-Service:</span> GraphQL API</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Enterprise:</span> Dedicated support</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Community:</span> Developer forums</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Engagement:</span> Quarterly reviews</li>
+            </ul>
+        </div>
+
+        <div class="md:col-span-1 md:row-span-2 bg-gradient-to-br from-gray-50 to-gray-100 border-2 border-purple-600 rounded-xl p-5">
+            <h3 class="text-gray-800 text-lg font-semibold mb-4 pb-2 border-b-2 border-gray-300 flex items-center gap-2"><span class="w-6 h-6 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-md flex items-center justify-center text-white font-bold text-sm">CS</span> Customer Segments</h3>
+            <ul class="list-none p-0">
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">AI Startups</span> (200-400)<br>Character.AI, Perplexity, etc.</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Big Tech</span> (50-100)<br>Google, Microsoft, Meta</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Research Labs</span> (20-50)<br>Anthropic, OpenAI</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Enterprise AI</span> (200-300)<br>Finance, Legal, Healthcare</li>
+                <li class="mt-4 font-bold text-indigo-500">TAM: 500-1,000 customers</li>
+            </ul>
+        </div>
+
+        <div class="bg-gray-50 border-2 border-gray-200 rounded-xl p-5 hover:shadow-lg hover:border-indigo-500 transition-all duration-300 transform hover:-translate-y-1">
+            <h3 class="text-gray-800 text-lg font-semibold mb-4 pb-2 border-b-2 border-gray-300 flex items-center gap-2"><span class="w-6 h-6 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-md flex items-center justify-center text-white font-bold text-sm">KR</span> Key Resources</h3>
+            <ul class="list-none p-0">
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Tech Stack:</span> Kafka, Redis, K8s</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Data Lake:</span> Petabytes of conversations</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Team:</span> ML engineers, Backend devs</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">IP:</span> Orchestration algorithms</li>
+            </ul>
+        </div>
+
+        <div class="bg-gray-50 border-2 border-gray-200 rounded-xl p-5 hover:shadow-lg hover:border-indigo-500 transition-all duration-300 transform hover:-translate-y-1">
+            <h3 class="text-gray-800 text-lg font-semibold mb-4 pb-2 border-b-2 border-gray-300 flex items-center gap-2"><span class="w-6 h-6 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-md flex items-center justify-center text-white font-bold text-sm">CH</span> Channels</h3>
+            <ul class="list-none p-0">
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Direct:</span> Enterprise sales team</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Digital:</span> API marketplace, GitHub</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Partners:</span> Cloud marketplaces</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Events:</span> AI conferences</li>
+            </ul>
+        </div>
+
+        <div class="md:col-span-2 bg-yellow-50 border-2 border-yellow-400 rounded-xl p-5">
+            <h3 class="text-gray-800 text-lg font-semibold mb-4 pb-2 border-b-2 border-gray-300 flex items-center gap-2"><span class="w-6 h-6 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-md flex items-center justify-center text-white font-bold text-sm">CS</span> Cost Structure</h3>
+            <ul class="list-none p-0">
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Variable (60%):</span> LLM API calls, GPU compute, Cloud infrastructure</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Fixed (30%):</span> Engineering salaries, DevOps, Data scientists</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Data (10%):</span> Licensing, Storage, API feeds</li>
+            </ul>
+        </div>
+
+        <div class="md:col-span-3 bg-green-50 border-2 border-green-400 rounded-xl p-5">
+            <h3 class="text-gray-800 text-lg font-semibold mb-4 pb-2 border-b-2 border-gray-300 flex items-center gap-2"><span class="w-6 h-6 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-md flex items-center justify-center text-white font-bold text-sm">RS</span> Revenue Streams</h3>
+            <ul class="list-none p-0">
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Annual Subscriptions:</span> $100K ACV target, tiered by volume</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Usage-Based:</span> Pay-per-dataset, burst capacity pricing</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Professional Services:</span> Custom generation, white-glove onboarding</li>
+                <li class="text-gray-600 text-sm mb-2 pl-5 relative before:content-['▸'] before:absolute before:left-0 before:text-indigo-500 before:font-bold"><span class="font-semibold text-gray-800">Future:</span> Analytics platform, quality assessment tools</li>
+            </ul>
         </div>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+    <div class="mt-8 p-5 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl text-white">
+        <h3 class="text-xl font-bold mb-4">📊 Key Metrics & Strategic Advantages</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="bg-white/10 p-3 rounded-lg backdrop-blur-sm">
+                <strong class="block mb-1 text-yellow-300">Business KPIs</strong>
+                ARR, CAC, CLV, Monthly Active APIs
             </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="bg-white/10 p-3 rounded-lg backdrop-blur-sm">
+                <strong class="block mb-1 text-yellow-300">Operational KPIs</strong>
+                TB/month generated, API latency (p99)
             </div>
-            <div class="modal-footer">
+            <div class="bg-white/10 p-3 rounded-lg backdrop-blur-sm">
+                <strong class="block mb-1 text-yellow-300">Market Position</strong>
+                First-mover in multi-model synthesis
+            </div>
+            <div class="bg-white/10 p-3 rounded-lg backdrop-blur-sm">
+                <strong class="block mb-1 text-yellow-300">Competitive Moat</strong>
+                Network effects + proprietary orchestration
             </div>
         </div>
     </div>
 </div>
+        </main>
+    </div>
 
-    </body>
+    <footer class="text-center mt-16 py-8 border-t border-slate-200">
+        <p class="text-slate-600">Project Chimera | August 2025</p>
+    </footer>
+
+</body>
 </html>

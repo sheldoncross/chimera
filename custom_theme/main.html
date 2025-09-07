@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ config.site_name }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #2563eb, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 md:px-8 py-4">
+            <nav class="flex items-center justify-between">
+                <a href="{{ nav.homepage.url }}" class="text-2xl font-bold gradient-text">{{ config.site_name }}</a>
+                <ul class="hidden md:flex items-center space-x-8">
+                    {% for nav_item in nav %}
+                        {% if nav_item.children %}
+                            <li class="relative group">
+                                <a href="#" class="hover:text-blue-600">{{ nav_item.title }}</a>
+                                <ul class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48">
+                                    {% for child in nav_item.children %}
+                                        <li><a href="{{ child.url }}" class="block px-4 py-2 hover:bg-slate-100">{{ child.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li><a href="{{ nav_item.url }}" class="hover:text-blue-600">{{ nav_item.title }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container mx-auto p-4 md:p-8">
+        <main>
+            {% if page.title %}
+            <h1 class="text-4xl font-bold mb-8">{{ page.title }}</h1>
+            {% endif %}
+            {{ page.content }}
+        </main>
+    </div>
+
+    <footer class="text-center mt-16 py-8 border-t border-slate-200">
+        <p class="text-slate-600">{{ config.site_name }} | August 2025</p>
+    </footer>
+
+</body>
+</html>
