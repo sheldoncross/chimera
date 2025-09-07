@@ -2,6 +2,12 @@
 
 Project Chimera is a synthetic data generation platform for training Large Language Models (LLMs). The system creates high-fidelity conversational data by orchestrating discussions between multiple AI models and grounding them with real-time human data.
 
+## Business Goals
+
+Project Chimera aims to solve the impending data scarcity problem in the AI industry. Our primary business goal is to become the leading provider of high-fidelity, synthetic conversational data for training and fine-tuning Large Language Models. We are a "picks and shovels" play for the generative AI revolution, providing the essential fuel that all AI developers need.
+
+Our target market includes AI model developers, AI safety and alignment research labs, and enterprise AI teams. We will offer our data as a service (DaaS) through a tiered API subscription model.
+
 ## Architecture Overview
 
 Project Chimera follows a microservices architecture with event-driven communication:

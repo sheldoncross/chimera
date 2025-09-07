@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Ingestion Service | Project Chimera</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #2563eb, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 md:px-8 py-4">
+            <nav class="flex items-center justify-between">
+                <a href="" class="text-2xl font-bold gradient-text">Project Chimera</a>
+                <ul class="hidden md:flex items-center space-x-8">
+
+
+                            <li class="relative group">
+                                <a href="#" class="hover:text-blue-600">Project Overview</a>
+                                <ul class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48">
+
+                                        <li><a href="" class="block px-4 py-2 hover:bg-slate-100">Home</a></li>
+
+                                        <li><a href="info/" class="block px-4 py-2 hover:bg-slate-100">Info Page</a></li>
+
+                                        <li><a href="info-specialized/" class="block px-4 py-2 hover:bg-slate-100">Specialized Info Page</a></li>
+
+                                </ul>
+                            </li>
+
+
+
+                            <li class="relative group">
+                                <a href="#" class="hover:text-blue-600">Services</a>
+                                <ul class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48">
+
+                                        <li><a href="data-ingestion-service/" class="block px-4 py-2 hover:bg-slate-100">Data Ingestion Service</a></li>
+
+                                        <li><a href="orchestration-service/" class="block px-4 py-2 hover:bg-slate-100">Orchestration Service</a></li>
+
+                                </ul>
+                            </li>
+
+
+
+                            <li class="relative group">
+                                <a href="#" class="hover:text-blue-600">Business Case</a>
+                                <ul class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48">
+
+                                        <li><a href="investment-memo/" class="block px-4 py-2 hover:bg-slate-100">Investment Memo</a></li>
+
+                                        <li><a href="market-validation/" class="block px-4 py-2 hover:bg-slate-100">Market Validation</a></li>
+
+                                        <li><a href="business-model-canvas/" class="block px-4 py-2 hover:bg-slate-100">Business Model Canvas</a></li>
+
+                                </ul>
+                            </li>
+
+
+
+                            <li class="relative group">
+                                <a href="#" class="hover:text-blue-600">Documentation</a>
+                                <ul class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48">
+
+                                        <li><a href="managing-docs/" class="block px-4 py-2 hover:bg-slate-100">Managing Docs</a></li>
+
+                                </ul>
+                            </li>
+
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container mx-auto p-4 md:p-8">
+        <main>
+
+            <h1 class="text-4xl font-bold mb-8">Data Ingestion Service</h1>
+
+            <h1 id="data-ingestion-service">Data Ingestion Service</h1>
+<p>The data ingestion service is the core technical component of this repository. It is a containerized application that uses FastAPI to provide an API for controlling the scraping jobs.</p>
+<h2 id="architecture">Architecture</h2>
+<p>The service uses a distributed architecture with the following components:</p>
+<ul>
+<li><strong>FastAPI:</strong> Provides a web interface for scheduling and managing scraping jobs.</li>
+<li><strong>Beautiful Soup:</strong> Used for parsing HTML and XML documents.</li>
+<li><strong>Redis:</strong> Used as a message broker for distributed scraping. It manages the queue of URLs to be scraped and tracks duplicate requests.</li>
+<li><strong>Docker:</strong> The entire service is containerized using Docker and orchestrated with <code>docker-compose.yml</code>.</li>
+</ul>
+<h2 id="building-and-running">Building and Running</h2>
+<p>To build and run the data ingestion service, use the following commands from the <code>/src/backend/services/data-ingestion-service</code> directory:</p>
+<ol>
+<li>
+<p><strong>Build the Docker image:</strong>
+    <code>sh
+    docker build -t data-ingestion-service .</code></p>
+</li>
+<li>
+<p><strong>Run the service with Docker Compose:</strong>
+    <code>sh
+    docker-compose up -d</code></p>
+</li>
+</ol>
+<p>This will start the <code>data-ingestion-service</code> and the <code>redis</code> container. The service will be available at <code>http://localhost:8000</code>.</p>
+<h2 id="api-endpoints">API Endpoints</h2>
+<p>The data ingestion service exposes the following API endpoints:</p>
+<ul>
+<li><code>GET /api/v1/scrape/news</code>: Schedules a scraping job for news articles.<ul>
+<li><strong>Query Parameters:</strong><ul>
+<li><code>start_urls</code> (optional): A comma-separated list of URLs to scrape.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>GET /api/v1/clear_scrape_queue</code>: Clears the Redis queue for news scraping and the duplicate filter.</li>
+</ul>
+<h2 id="development-conventions">Development Conventions</h2>
+<ul>
+<li><strong>Dependencies:</strong> Python dependencies are managed in <code>requirements.txt</code>.</li>
+<li><strong>Configuration:</strong> Environment variables are used for configuration and are managed with a <code>.env</code> file.</li>
+</ul>
+        </main>
+    </div>
+
+    <footer class="text-center mt-16 py-8 border-t border-slate-200">
+        <p class="text-slate-600">Project Chimera | August 2025</p>
+    </footer>
+
+</body>
+</html>

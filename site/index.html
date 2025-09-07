@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Project Chimera</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #2563eb, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 md:px-8 py-4">
+            <nav class="flex items-center justify-between">
+                <a href="" class="text-2xl font-bold gradient-text">Project Chimera</a>
+                <ul class="hidden md:flex items-center space-x-8">
+
+
+                            <li class="relative group">
+                                <a href="#" class="hover:text-blue-600">Project Overview</a>
+                                <ul class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48">
+
+                                        <li><a href="" class="block px-4 py-2 hover:bg-slate-100">Home</a></li>
+
+                                        <li><a href="info/" class="block px-4 py-2 hover:bg-slate-100">Info Page</a></li>
+
+                                        <li><a href="info-specialized/" class="block px-4 py-2 hover:bg-slate-100">Specialized Info Page</a></li>
+
+                                </ul>
+                            </li>
+
+
+
+                            <li class="relative group">
+                                <a href="#" class="hover:text-blue-600">Services</a>
+                                <ul class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48">
+
+                                        <li><a href="data-ingestion-service/" class="block px-4 py-2 hover:bg-slate-100">Data Ingestion Service</a></li>
+
+                                        <li><a href="orchestration-service/" class="block px-4 py-2 hover:bg-slate-100">Orchestration Service</a></li>
+
+                                </ul>
+                            </li>
+
+
+
+                            <li class="relative group">
+                                <a href="#" class="hover:text-blue-600">Business Case</a>
+                                <ul class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48">
+
+                                        <li><a href="investment-memo/" class="block px-4 py-2 hover:bg-slate-100">Investment Memo</a></li>
+
+                                        <li><a href="market-validation/" class="block px-4 py-2 hover:bg-slate-100">Market Validation</a></li>
+
+                                        <li><a href="business-model-canvas/" class="block px-4 py-2 hover:bg-slate-100">Business Model Canvas</a></li>
+
+                                </ul>
+                            </li>
+
+
+
+                            <li class="relative group">
+                                <a href="#" class="hover:text-blue-600">Documentation</a>
+                                <ul class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48">
+
+                                        <li><a href="managing-docs/" class="block px-4 py-2 hover:bg-slate-100">Managing Docs</a></li>
+
+                                </ul>
+                            </li>
+
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container mx-auto p-4 md:p-8">
+        <main>
+
+            <h1 class="text-4xl font-bold mb-8">Home</h1>
+
+            <h1 id="welcome-to-project-chimera">Welcome to Project Chimera</h1>
+<p>Project Chimera is a synthetic data generation platform for training Large Language Models (LLMs). The system creates high-fidelity conversational data by orchestrating discussions between multiple AI models and grounding them with real-time human data.</p>
+<h2 id="business-goals">Business Goals</h2>
+<p>Project Chimera aims to solve the impending data scarcity problem in the AI industry. Our primary business goal is to become the leading provider of high-fidelity, synthetic conversational data for training and fine-tuning Large Language Models. We are a "picks and shovels" play for the generative AI revolution, providing the essential fuel that all AI developers need.</p>
+<p>Our target market includes AI model developers, AI safety and alignment research labs, and enterprise AI teams. We will offer our data as a service (DaaS) through a tiered API subscription model.</p>
+<h2 id="architecture-overview">Architecture Overview</h2>
+<p>Project Chimera follows a microservices architecture with event-driven communication:</p>
+<h3 id="core-services">Core Services</h3>
+<ol>
+<li><strong><a href="data-ingestion-service/">Data Ingestion Service</a></strong> ✅ <strong>Completed</strong></li>
+<li>Scrapes topics from news sources (Hacker News)</li>
+<li>Pushes topics to Redis queue for processing</li>
+<li>
+<p>FastAPI-based with Scrapy integration</p>
+</li>
+<li>
+<p><strong><a href="orchestration-service/">Orchestration Service</a></strong> ✅ <strong>Production Ready</strong></p>
+</li>
+<li>Orchestrates conversations between multiple LLMs (Anthropic Claude, Google Gemini)</li>
+<li>Event-driven architecture using Kafka with full producer/consumer implementation</li>
+<li>Manages conversation state with Redis including locking and persistence</li>
+<li><strong>Status</strong>: 41/69 tests passing (59%), all core functionality implemented and working</li>
+</ol>
+<h3 id="technology-stack">Technology Stack</h3>
+<ul>
+<li><strong>Backend</strong>: Python 3.10+, FastAPI, asyncio</li>
+<li><strong>Message Broker</strong>: Apache Kafka for event streaming</li>
+<li><strong>State Storage</strong>: Redis for conversation state and topic queues</li>
+<li><strong>LLM Integration</strong>: Anthropic Claude, Google Gemini</li>
+<li><strong>Containerization</strong>: Docker, docker-compose</li>
+<li><strong>Testing</strong>: pytest, pytest-asyncio</li>
+</ul>
+<h3 id="data-flow">Data Flow</h3>
+<ol>
+<li><strong>Topic Ingestion</strong>: News topics scraped and queued in Redis</li>
+<li><strong>Conversation Creation</strong>: Topics pulled from queue to start conversations</li>
+<li><strong>LLM Orchestration</strong>: Multiple models engage in structured discussions</li>
+<li><strong>Quality Assessment</strong>: Conversations scored and validated</li>
+<li><strong>Data Output</strong>: Completed conversations published for downstream processing</li>
+</ol>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li><a href="data-ingestion-service/">Data Ingestion Service</a> - News scraping and topic management</li>
+<li><a href="orchestration-service/">Orchestration Service</a> - Conversation orchestration and LLM integration</li>
+<li><a href="investment-memo/">Investment Memo</a> - Business case and market analysis</li>
+<li><a href="market-validation/">Market Validation</a> - Target market and competitive analysis</li>
+</ul>
+<h2 id="development-status">Development Status</h2>
+<h3 id="completed">Completed ✅</h3>
+<ul>
+<li><strong>Data Ingestion Service</strong>: Full implementation with Redis integration and Docker support</li>
+<li><strong>Orchestration Service</strong>: Complete implementation with 59% test coverage</li>
+<li>LLM clients with rate limiting, circuit breakers, and health checks</li>
+<li>Kafka producer/consumer infrastructure with event routing</li>
+<li>Redis state management with conversation tracking and locking</li>
+<li>Conversation orchestration with multi-turn LLM interactions</li>
+<li><strong>Core Infrastructure</strong>: Event-driven architecture with Redis and Kafka</li>
+<li><strong>Comprehensive Testing</strong>: 110+ tests across both services</li>
+</ul>
+<h3 id="in-progress">In Progress 🚧</h3>
+<ul>
+<li>Orchestration service test coverage improvements (28 remaining edge cases)</li>
+<li>End-to-end integration testing between services</li>
+<li>Production deployment guides and monitoring</li>
+</ul>
+<h3 id="planned">Planned 📋</h3>
+<ul>
+<li>Analytics and monitoring service</li>
+<li>Data storage and retrieval service</li>
+<li>Production deployment automation</li>
+<li>Performance optimization and scaling</li>
+</ul>
+        </main>
+    </div>
+
+    <footer class="text-center mt-16 py-8 border-t border-slate-200">
+        <p class="text-slate-600">Project Chimera | August 2025</p>
+    </footer>
+
+</body>
+</html>

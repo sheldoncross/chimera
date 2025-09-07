@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Managing Docs | Project Chimera</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #2563eb, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 md:px-8 py-4">
+            <nav class="flex items-center justify-between">
+                <a href="" class="text-2xl font-bold gradient-text">Project Chimera</a>
+                <ul class="hidden md:flex items-center space-x-8">
+
+
+                            <li class="relative group">
+                                <a href="#" class="hover:text-blue-600">Project Overview</a>
+                                <ul class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48">
+
+                                        <li><a href="" class="block px-4 py-2 hover:bg-slate-100">Home</a></li>
+
+                                        <li><a href="info/" class="block px-4 py-2 hover:bg-slate-100">Info Page</a></li>
+
+                                        <li><a href="info-specialized/" class="block px-4 py-2 hover:bg-slate-100">Specialized Info Page</a></li>
+
+                                </ul>
+                            </li>
+
+
+
+                            <li class="relative group">
+                                <a href="#" class="hover:text-blue-600">Services</a>
+                                <ul class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48">
+
+                                        <li><a href="data-ingestion-service/" class="block px-4 py-2 hover:bg-slate-100">Data Ingestion Service</a></li>
+
+                                        <li><a href="orchestration-service/" class="block px-4 py-2 hover:bg-slate-100">Orchestration Service</a></li>
+
+                                </ul>
+                            </li>
+
+
+
+                            <li class="relative group">
+                                <a href="#" class="hover:text-blue-600">Business Case</a>
+                                <ul class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48">
+
+                                        <li><a href="investment-memo/" class="block px-4 py-2 hover:bg-slate-100">Investment Memo</a></li>
+
+                                        <li><a href="market-validation/" class="block px-4 py-2 hover:bg-slate-100">Market Validation</a></li>
+
+                                        <li><a href="business-model-canvas/" class="block px-4 py-2 hover:bg-slate-100">Business Model Canvas</a></li>
+
+                                </ul>
+                            </li>
+
+
+
+                            <li class="relative group">
+                                <a href="#" class="hover:text-blue-600">Documentation</a>
+                                <ul class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48">
+
+                                        <li><a href="managing-docs/" class="block px-4 py-2 hover:bg-slate-100">Managing Docs</a></li>
+
+                                </ul>
+                            </li>
+
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container mx-auto p-4 md:p-8">
+        <main>
+
+            <h1 class="text-4xl font-bold mb-8">Managing Docs</h1>
+
+            <h1 id="managing-the-documentation">Managing the Documentation</h1>
+<p>This documentation is built using <a href="https://www.mkdocs.org/">MkDocs</a>, a static site generator for project documentation.</p>
+<h2 id="adding-a-new-page">Adding a New Page</h2>
+<p>To add a new page to the documentation, follow these steps:</p>
+<ol>
+<li>Create a new markdown file (e.g., <code>new-page.md</code>) in the <code>docs/</code> directory.</li>
+<li>Add content to the new file using markdown syntax.</li>
+<li>Open the <code>mkdocs.yml</code> file in the root of the repository.</li>
+<li>
+<p>Add a new entry to the <code>nav</code> section that points to your new file. For example:</p>
+<p><code>yaml
+nav:
+  - Project Overview:
+    - Home: index.md
+    - ...
+  - Services:
+    - ...
+    - New Page: new-page.md # Add your new page here
+  - Business Case:
+    - ...</code></p>
+</li>
+<li>
+<p>Save the <code>mkdocs.yml</code> file.</p>
+</li>
+</ol>
+<h2 id="mkdocsyml-structure"><code>mkdocs.yml</code> Structure</h2>
+<p>The <code>mkdocs.yml</code> file is the main configuration file for the documentation site. Here's a brief overview of its structure:</p>
+<ul>
+<li><code>site_name</code>: The title of the documentation site.</li>
+<li><code>docs_dir</code>: The directory where the documentation source files are located.</li>
+<li><code>nav</code>: The navigation structure of the site. This is a list of pages and sections that will appear in the navigation bar.</li>
+</ul>
+<p>For more information on configuring MkDocs, see the <a href="https://www.mkdocs.org/user-guide/configuration/">official documentation</a>.</p>
+        </main>
+    </div>
+
+    <footer class="text-center mt-16 py-8 border-t border-slate-200">
+        <p class="text-slate-600">Project Chimera | August 2025</p>
+    </footer>
+
+</body>
+</html>
